@@ -55,21 +55,21 @@ addCol.addEventListener('click', () => {
     return;
   }
 
-  for (let i = 0; i < colCount; i++) {
-    table.rows[i].insertCell();
+  for (let i = 0; i < table.rows.length; i++) {
+    table.rows[i].insertCell(-1);
   }
   updateButtons();
 });
 
 removeCol.addEventListener('click', () => {
-  const rowCount = table.rows[0].cells.length;
+  const colCount = table.rows[0].cells.length;
 
-  if (rowCount <= MIN_COUNT) {
+  if (colCount <= MIN_COUNT) {
     return;
   }
 
   for (let i = 0; i < table.rows.length; i++) {
-    table.rows[i].deleteCell(rowCount - 1);
+    table.rows[i].deleteCell(colCount - 1);
   }
   updateButtons();
 });
